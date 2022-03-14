@@ -1,4 +1,4 @@
-Array.prototype.lastindexOf = (array, targetElement) => {
+Array.prototype.myLastIndexOf = (array, targetElement) => {
     let output = -1;
     for (index = 0; index < array.length; index++) {
         if (array[index] == targetElement) {
@@ -9,5 +9,5 @@ Array.prototype.lastindexOf = (array, targetElement) => {
 }
 
 //Test
-LastindexTest = Array.prototype.lastindexOf([108, 18, 8, 8, 9, 9], 9);
+LastindexTest = Array.prototype.myLastIndexOf([108, 18, 8, 8, 9, 9], 9);
 console.log(LastindexTest);
