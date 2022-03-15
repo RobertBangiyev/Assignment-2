@@ -1,7 +1,10 @@
 Array.prototype.myMap = function(callback) {
     let output = [];
     for(let i = 0; i < this.length;i++) {
-      output.push(callback(this[i]));
+      if(this[i] === undefined) {
+        continue;
+      }
+      output.push(callback(this[i], i, this));
     }
     return output;
 }
@@ -21,3 +24,17 @@ const anotherMap2 = anotherArray.myMap(x => x + 1);
 
 console.log(anotherMap1); //prints [2, 4, 6, 8]
 console.log(anotherMap2); //prints [2, 4, 6, 8]
+
+let myArray = [1,2,,4,5];
+
+console.log("Two params");
+console.log("map:");
+myArray.map((x, i) => console.log(x, i));
+console.log("myMap:");
+myArray.myMap((x, i) => console.log(x, i));
+
+console.log("Three params");
+console.log("map:");
+myArray.map((x, i) => console.log(x, i, this));
+console.log("myMap:");
+myArray.myMap((x, i) => console.log(x, i, this));
