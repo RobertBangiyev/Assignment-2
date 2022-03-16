@@ -1,13 +1,26 @@
-Array.prototype.myIndexOf = (array, targetElement) => {
+Array.prototype.myIndexOf = function (targetElement, fromIndex = 0) {
+    let searchIndex = fromIndex;
+    if(searchIndex < 0) {
+        searchIndex = this.length + searchIndex;
+    }
     let output = -1;
-    for (index = 0; index < array.length; index++) {
-        if (array[index] == targetElement) {
-            return index;
+    for (let i = searchIndex; i < this.length; i++)  {
+        if (this[i] === targetElement) {
+            return i;
         }
     }
     return output;
-}
+};
 
 //Test
-samplearray = [6, 98, 54, 8, 11, 11]
-indexTest = Array.prototype.myIndexOf(samplearray,11);
+const array = [2, 9, 9];
+
+console.log(array.indexOf(9, 2));
+console.log(array.myIndexOf(9, 2));
+
+console.log(array.indexOf(2, -1));
+console.log(array.myIndexOf(2, -1));
+
+console.log(array.indexOf(2, -3));
+console.log(array.myIndexOf(2, -3));
+
