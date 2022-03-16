@@ -1,10 +1,10 @@
-Array.prototype.myReduce = function(callback, startValue) {
+Array.prototype.myReduce = function(callback, startValue = this[0]) {
     let output = startValue;
     for(let i = 0; i < this.length; i++) {
         if(this[i] === undefined) {
             continue;
         }
-        output = callback(output, this[i]);
+        output = callback(output, this[i], i, this);
     }
     return output;
 }
